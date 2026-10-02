@@ -10,7 +10,7 @@
 [![Qdrant](https://img.shields.io/badge/Qdrant-Vector_Search-blue)](https://qdrant.tech/)
 [![Scrapling](https://img.shields.io/badge/Scrapling-Web_Crawling-green)](https://github.com/D4Vinci/Scrapling)
 
-English | [简体中文](README.zh-CN.md)
+
 
 Assistly — AI Support That Works for You. — is a customized AI customer-support platform based on the MIT-licensed upstream Basjoo project. It has three main parts:
 
@@ -488,7 +488,6 @@ Assistly is built on top of these amazing open-source projects and is based on t
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=haoyiyin/basjoo&type=Date)](https://star-history.com/#haoyiyin/basjoo&Date)
 
 ## Current status
 
