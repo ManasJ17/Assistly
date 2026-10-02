@@ -1,4 +1,4 @@
-# Basjoo
+# Assistly
 
 [![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
@@ -10,7 +10,7 @@
 [![Qdrant](https://img.shields.io/badge/Qdrant-向量检索-blue)](https://qdrant.tech/)
 [![Scrapling](https://img.shields.io/badge/Scrapling-网页抓取-green)](https://github.com/D4Vinci/Scrapling)
 
-Basjoo 是一个面向 AI 客服场景的平台，主要由三部分组成：
+Assistly —— AI Support That Works for You. —— 是一个基于 MIT 许可上游 Basjoo 项目定制的 AI 客服平台，主要由三部分组成：
 
 - `backend/` 中的 **FastAPI 后端**，负责智能体配置、聊天、索引、认证和定时任务
 - `frontend-nextjs/` 中的 **Next.js 管理后台前端**
@@ -27,7 +27,7 @@ Basjoo 是一个面向 AI 客服场景的平台，主要由三部分组成：
 
 ## 系统要求
 
-Basjoo 以 Docker 容器方式运行。所有 LLM 推理和 Embedding 调用均走外部 API（OpenAI、DeepSeek、Anthropic、Gemini、Jina、SiliconFlow），**无需 GPU**。
+Assistly 以 Docker 容器方式运行。所有 LLM 推理和 Embedding 调用均走外部 API（OpenAI、DeepSeek、Anthropic、Gemini、Jina、SiliconFlow），**无需 GPU**。
 
 | | 最低配置 | 推荐配置 |
 |---|---|---|
@@ -39,13 +39,15 @@ Basjoo 以 Docker 容器方式运行。所有 LLM 推理和 Embedding 调用均�
 
 ## 自动部署
 
-对于一台全新的 Ubuntu 或 Debian 服务器，可直接执行：
+对于一台全新的 Ubuntu 或 Debian 服务器，请先准备好 Assistly 仓库，然后执行：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/haoyiyin/basjoo/main/install-deploy.sh | sudo sh
+sudo sh install-deploy.sh
 ```
 
-如果你已经在本地检出了仓库，也可以直接运行：
+如果你从远程仓库部署，请在运行安装脚本前将 `BASJOO_REPO_URL` 设置为最终确定的 Assistly 仓库地址。目前该地址尚未确定。
+
+如果你已经在本地检出了仓库，可以直接运行：
 
 ```bash
 sudo sh install-deploy.sh
@@ -472,12 +474,12 @@ DEFAULT_AGENT_ID=agt_123456789abc
 
 ## 致谢
 
-Basjoo 基于以下优秀的开源项目构建：
+Assistly 基于上游 Basjoo 项目以及以下优秀的开源项目构建：
 
-- **[Qdrant](https://qdrant.tech/)** — 高性能向量相似性搜索引擎。驱动 Basjoo 自研多租户知识库。
-- **[Scrapling](https://github.com/D4Vinci/Scrapling)** — 隐身网页抓取，支持 TLS 指纹伪装（curl_cffi）。驱动 Basjoo 的 URL 内容提取微服务。
-- **[FastAPI](https://github.com/tiangolo/fastapi)** — 驱动 Basjoo 后端 API 的 Web 框架。
-- **[Next.js](https://github.com/vercel/next.js)** — 驱动 Basjoo 管理后台的 React 框架。
+- **[Qdrant](https://qdrant.tech/)** — 高性能向量相似性搜索引擎。驱动 Assistly 自研多租户知识库。
+- **[Scrapling](https://github.com/D4Vinci/Scrapling)** — 隐身网页抓取，支持 TLS 指纹伪装（curl_cffi）。驱动 Assistly 的 URL 内容提取微服务。
+- **[FastAPI](https://github.com/tiangolo/fastapi)** — 驱动 Assistly 后端 API 的 Web 框架。
+- **[Next.js](https://github.com/vercel/next.js)** — 驱动 Assistly 管理后台的 React 框架。
 - **[pgvector](https://github.com/pgvector/pgvector)** — PostgreSQL 开源向量相似性搜索。
 
 ## 贡献者

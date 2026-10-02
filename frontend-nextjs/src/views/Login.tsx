@@ -40,7 +40,7 @@ export const Login = () => {
 
 		try {
 			await login(email, password);
-			navigate("/");
+			navigate("/", { replace: true });
 		} catch (err: unknown) {
 			const message =
 				err instanceof Error ? err.message : t("errors.loginFailed");
@@ -95,12 +95,12 @@ export const Login = () => {
 							width: "80px",
 							height: "80px",
 							marginBottom: "var(--space-6)",
-							filter: "drop-shadow(0 0 20px hsla(188deg, 90%, 50%, 0.3))",
+							filter: "drop-shadow(0 0 20px hsla(145deg, 85%, 52%, 0.3))",
 						}}
 					>
 						<img
 							src="/logo.png"
-							alt="Basjoo Logo"
+							alt="Assistly Logo"
 							style={{
 								width: "100%",
 								height: "100%",
@@ -114,13 +114,13 @@ export const Login = () => {
 							fontWeight: 700,
 							marginBottom: "var(--space-3)",
 							background:
-								"linear-gradient(135deg, hsl(188deg, 90%, 50%) 0%, hsl(265deg, 90%, 65%) 100%)",
+								"var(--color-accent-gradient)",
 							WebkitBackgroundClip: "text",
 							backgroundClip: "text",
 							WebkitTextFillColor: "transparent",
 						}}
 					>
-						Basjoo
+						Assistly
 					</h1>
 					<p
 						style={{

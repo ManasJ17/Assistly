@@ -6,7 +6,11 @@ cd "$ROOT_DIR"
 
 BASE_URL="${BASE_URL:-http://127.0.0.1}"
 ADMIN_EMAIL="${AUTORESEARCH_ADMIN_EMAIL:-autoresearch-admin@example.com}"
-ADMIN_PASSWORD="${AUTORESEARCH_ADMIN_PASSWORD:-AutoresearchPass123!}"
+if [[ -z "${AUTORESEARCH_ADMIN_PASSWORD:-}" ]]; then
+  printf '%s\n' 'Error: AUTORESEARCH_ADMIN_PASSWORD must be set in the environment.' >&2
+  exit 1
+fi
+ADMIN_PASSWORD="$AUTORESEARCH_ADMIN_PASSWORD"
 ADMIN_NAME="${AUTORESEARCH_ADMIN_NAME:-Autoresearch Admin}"
 TMP_DIR="${TMPDIR:-/tmp}/basjoo-prod-stability"
 COOKIE_JAR="$TMP_DIR/cookies.txt"

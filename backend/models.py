@@ -175,10 +175,10 @@ class Agent(Base):
     )  # general, customer-service, sales, custom
 
     # Widget 配置
-    widget_title = Column(String(100), nullable=True, default="AI 客服")
+    widget_title = Column(String(100), nullable=True, default="Assistly")
     widget_color = Column(String(20), nullable=True, default="#06B6D4")
     welcome_message = Column(
-        Text, nullable=True, default="您好！我是Basjoo助手，有什么可以帮您的吗？"
+        Text, nullable=True, default="Hi! I'm Assistly AI Assistant. How can I help you today?"
     )
     history_days = Column(Integer, nullable=False, default=30)
 

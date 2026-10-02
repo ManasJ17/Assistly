@@ -3,8 +3,8 @@ import '../src/index.css';
 import { AppProviders } from '../src/components/AppProviders';
 
 export const metadata: Metadata = {
-  title: 'Basjoo',
-  description: 'Basjoo admin dashboard',
+  title: 'Assistly',
+  description: 'Assistly is an AI-powered customer support platform.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

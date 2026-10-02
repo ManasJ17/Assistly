@@ -1,4 +1,4 @@
-# Basjoo
+# Assistly
 
 [![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
@@ -12,7 +12,7 @@
 
 English | [简体中文](README.zh-CN.md)
 
-Basjoo is an AI customer-support platform with three main parts:
+Assistly — AI Support That Works for You. — is a customized AI customer-support platform based on the MIT-licensed upstream Basjoo project. It has three main parts:
 
 - a **FastAPI backend** for agent configuration, chat, indexing, auth, and scheduling
 - a **Next.js admin/dashboard frontend** in `frontend-nextjs/`
@@ -22,7 +22,7 @@ The stack also uses **SQLite** for application data, **Redis** for rate limiting
 
 ## System requirements
 
-Basjoo runs as a set of Docker containers. All LLM inference and embedding calls are made to external APIs (OpenAI, DeepSeek, Anthropic, Gemini, Jina, SiliconFlow), so **no GPU is required**.
+Assistly runs as a set of Docker containers. All LLM inference and embedding calls are made to external APIs (OpenAI, DeepSeek, Anthropic, Gemini, Jina, SiliconFlow), so **no GPU is required**.
 
 | | Minimum | Recommended |
 |---|---|---|
@@ -34,13 +34,15 @@ Basjoo runs as a set of Docker containers. All LLM inference and embedding calls
 
 ## Automatic deployment
 
-For a blank Ubuntu or Debian server, run:
+For a blank Ubuntu or Debian server, use a checked-out Assistly repository and run:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/haoyiyin/basjoo/main/install-deploy.sh | sudo sh
+sudo sh install-deploy.sh
 ```
 
-If you already have this repository checked out locally, you can also run:
+If you are provisioning from a remote repository, set `BASJOO_REPO_URL` to the finalized Assistly repository URL before running the installer. That URL has not been finalized yet.
+
+If you already have this repository checked out locally, run:
 
 ```bash
 sudo sh install-deploy.sh
@@ -470,12 +472,12 @@ Examples of backend endpoints present in the codebase:
 
 ## Acknowledgments
 
-Basjoo is built on top of these amazing open-source projects:
+Assistly is built on top of these amazing open-source projects and is based on the upstream Basjoo project:
 
-- **[Qdrant](https://qdrant.tech/)** — High-performance vector similarity search engine. Powers Basjoo's self-developed multi-tenant knowledge base.
-- **[Scrapling](https://github.com/D4Vinci/Scrapling)** — Stealthy web scraping with TLS fingerprint impersonation (curl_cffi). Powers Basjoo's URL content extraction microservice.
-- **[FastAPI](https://github.com/tiangolo/fastapi)** — The web framework powering Basjoo's backend APIs.
-- **[Next.js](https://github.com/vercel/next.js)** — The React framework powering Basjoo's admin dashboard.
+- **[Qdrant](https://qdrant.tech/)** — High-performance vector similarity search engine. Powers Assistly's self-developed multi-tenant knowledge base.
+- **[Scrapling](https://github.com/D4Vinci/Scrapling)** — Stealthy web scraping with TLS fingerprint impersonation (curl_cffi). Powers Assistly's URL content extraction microservice.
+- **[FastAPI](https://github.com/tiangolo/fastapi)** — The web framework powering Assistly's backend APIs.
+- **[Next.js](https://github.com/vercel/next.js)** — The React framework powering Assistly's admin dashboard.
 - **[pgvector](https://github.com/pgvector/pgvector)** — Open-source vector similarity search for PostgreSQL.
 
 ## Contributors

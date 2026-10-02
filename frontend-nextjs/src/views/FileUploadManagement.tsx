@@ -529,12 +529,12 @@ export default function FileUploadManagement() {
 											textAlign: "center",
 											cursor: "pointer",
 											background: dragActive
-												? "hsla(188deg, 90%, 50%, 0.06)"
+												? "hsla(145deg, 85%, 52%, 0.06)"
 												: "var(--color-bg-tertiary)",
 											transition: "all var(--transition-base)",
 											transform: dragActive ? "scale(1.01)" : "scale(1)",
 											boxShadow: dragActive
-												? "inset 0 0 30px hsla(188deg, 90%, 50%, 0.08)"
+												? "inset 0 0 30px hsla(145deg, 85%, 52%, 0.08)"
 												: "none",
 										}}
 									>

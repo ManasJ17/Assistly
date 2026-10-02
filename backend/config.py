@@ -168,7 +168,7 @@ class Settings(BaseSettings):
     cors_allow_null_origin: bool = False
 
     # 应用
-    app_name: str = "Basjoo"
+    app_name: str = "Assistly"
     app_port: int = 8000
 
     # 限流

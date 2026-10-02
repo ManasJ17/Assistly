@@ -1,7 +1,7 @@
 # AGENTS.md
 
 ## Scope
-This is the primary reference for AI coding agents (Pi, Claude, Cursor, Aider, etc.) working on the Basjoo repository. **Always read this file, CLAUDE.md, and relevant sections of README.md before starting any task.** Implementation plans are in `docs/plans/`; capability specs are in `docs/specs/`.
+This is the primary reference for AI coding agents (Pi, Claude, Cursor, Aider, etc.) working on the Assistly repository, a customized version based on the upstream Basjoo project. **Always read this file, CLAUDE.md, and relevant sections of README.md before starting any task.** Implementation plans are in `docs/plans/`; capability specs are in `docs/specs/`.
 
 ## Project overview
 Docker-oriented AI customer support platform:

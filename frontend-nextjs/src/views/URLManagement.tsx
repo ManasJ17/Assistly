@@ -694,7 +694,7 @@ export default function URLManagement() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: 'var(--space-2)',
-                    background: 'linear-gradient(135deg, #8B5CF6, #6366F1)',
+                    background: 'var(--color-accent-gradient)',
                     color: 'white',
                     border: 'none',
                   }}

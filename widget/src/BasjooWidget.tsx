@@ -243,8 +243,8 @@ class BasjooWidget {
       apiBase,
       themeColor: config.themeColor || '',
       logoUrl: config.logoUrl || buildDefaultLogoUrl(apiBase),
-      title: config.title || 'AI助手',
-      welcomeMessage: config.welcomeMessage || '你好！有什么可以帮助您的吗？',
+      title: config.title || 'Assistly',
+      welcomeMessage: config.welcomeMessage || "Hi! I'm Assistly AI Assistant. How can I help you today?",
       language: config.language || 'auto',
       position: config.position || 'right',
       theme: config.theme || 'auto',
@@ -354,10 +354,10 @@ class BasjooWidget {
       }
       this.config.themeColor = this.config.themeColor || data.widget_color || '#3B82F6'
       if (!this.hasTitleOverride) {
-        this.config.title = data.widget_title || 'AI助手'
+        this.config.title = data.widget_title || 'Assistly'
       }
       if (!this.hasWelcomeMessageOverride) {
-        this.config.welcomeMessage = data.welcome_message || '你好！有什么可以帮助您的吗？'
+        this.config.welcomeMessage = data.welcome_message || "Hi! I'm Assistly AI Assistant. How can I help you today?"
       }
       this.effectiveTheme = this.getEffectiveTheme()
     } catch (error) {

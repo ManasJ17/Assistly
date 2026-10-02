@@ -160,6 +160,7 @@ backend/.config/
 backend/.pki/
 
 # E2E 测试结果与产物
+playwright-report/
 test-results/
 e2e-test/test-results/
 e2e-test/artifacts/

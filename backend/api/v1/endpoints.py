@@ -161,7 +161,10 @@ def get_restricted_reply(
     restricted_reply: Optional[str],
     default: str,
 ) -> str:
-    return restricted_reply or default
+    legacy_default = "抱歉，当前服务受限，请稍后再试。"
+    if not restricted_reply or restricted_reply.strip() == legacy_default:
+        return default
+    return restricted_reply
 
 
 def get_agent_plaintext_keys(agent: Agent) -> Optional[str]:
@@ -813,7 +816,7 @@ async def prepare_chat_request(
         if messages_last_minute >= agent_rate_limit_per_minute:
             limit_reply = get_restricted_reply(
                 agent_restricted_reply,
-                "抱歉，当前服务受限，请稍后再试。",
+                "Sorry, this service is temporarily limited. Please try again later.",
             )
             logger.info(
                 f"Session {request.session_id} exceeded rate limit, returning auto reply"
@@ -914,15 +917,21 @@ async def prepare_chat_request(
     system_content = agent_system_prompt or "You are a helpful AI assistant."
     if kb_context:
         system_content += (
-            f"\n\n以下是相关背景资料：\n\n{kb_context}\n\n请基于以上资料回答用户问题。"
-            "\n\n引用说明：回答时请使用 [标题](#source-N) 格式引用来源，其中N为来源序号。"
-            "例如：根据 [Petking官网](#source-1)，我们的产品..."
+            f"\n\nHere is the relevant background information:\n\n{kb_context}"
+            "\n\nAnswer the user's question based on the information above."
+            "\n\nSource citation instructions: Use [Title](#source-N) format when citing sources, "
+            "where N is the source number. For example: Based on [Petking website](#source-1), "
+            "our product..."
         )
     else:
         system_content += (
             "\n\n[No relevant information found in the knowledge base. "
             "Please use a fallback response according to your role constraints.]"
         )
+    system_content += (
+        "\n\nAlways respond in English. Do not respond in Chinese or any other language "
+        "unless this instruction is explicitly changed by the application."
+    )
 
     messages.append({"role": "system", "content": system_content})
     if agent_enable_context and conversation_history:
@@ -1169,7 +1178,8 @@ async def chat(
     except Exception:
         logger.exception("LLM call failed in non-streaming chat")
         fallback = get_restricted_reply(
-            _restricted_reply, "抱歉，当前服务繁忙，请稍后再试。"
+            _restricted_reply,
+            "Sorry, the AI service is temporarily unavailable. Please try again later.",
         )
         return ChatResponse(
             reply=fallback,
@@ -1182,7 +1192,8 @@ async def chat(
     if not reply or not reply.strip():
         logger.warning("LLM returned empty response for session %s", session_public_id)
         reply = get_restricted_reply(
-            _restricted_reply, "抱歉，我暂时无法回答这个问题，请换个方式提问。"
+            _restricted_reply,
+            "I couldn't generate an answer right now. Please try asking in a different way.",
         )
     real_usage = llm.get_last_usage()
     if real_usage:
@@ -1342,7 +1353,8 @@ async def chat_stream(
                 if elapsed > max_stream_duration:
                     logger.warning("Stream timeout after %.0fs", elapsed)
                     fallback = get_restricted_reply(
-                        _restricted_reply, "抱歉，当前服务繁忙，请稍后再试。"
+                        _restricted_reply,
+                        "Sorry, the AI service is temporarily unavailable. Please try again later.",
                     )
                     yield sse_event("content", {"content": fallback})
                     yield sse_event(
@@ -1390,7 +1402,8 @@ async def chat_stream(
             logger.exception("LLM streaming failed")
             # Graceful fallback: return agent's restricted reply instead of a technical error
             fallback = get_restricted_reply(
-                _restricted_reply, "抱歉，当前服务繁忙，请稍后再试。"
+                _restricted_reply,
+                "Sorry, the AI service is temporarily unavailable. Please try again later.",
             )
             yield sse_event("content", {"content": fallback})
             yield sse_event(
@@ -1410,7 +1423,8 @@ async def chat_stream(
                 "LLM returned empty stream response for session %s", session_public_id
             )
             reply = get_restricted_reply(
-                _restricted_reply, "抱歉，我暂时无法回答这个问题，请换个方式提问。"
+                _restricted_reply,
+                "I couldn't generate an answer right now. Please try asking in a different way.",
             )
             yield sse_event("content", {"content": reply})
         real_usage = llm.get_last_usage()

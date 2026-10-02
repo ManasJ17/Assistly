@@ -393,8 +393,8 @@ function ChatPanel({
 								alignItems: "center",
 								justifyContent: "center",
 								marginBottom: "var(--space-4)",
-								border: "1px solid hsla(188deg, 90%, 50%, 0.15)",
-								boxShadow: "0 0 30px hsla(188deg, 90%, 50%, 0.1)",
+								border: "1px solid hsla(145deg, 85%, 52%, 0.15)",
+								boxShadow: "0 0 30px hsla(145deg, 85%, 52%, 0.1)",
 							}}
 						>
 							<svg
@@ -475,7 +475,7 @@ function ChatPanel({
 														: "var(--radius-lg) var(--radius-lg) var(--radius-lg) 4px",
 												background:
 													msg.role === "user"
-														? "linear-gradient(135deg, hsla(265deg, 80%, 55%, 0.9), hsla(225deg, 30%, 15%, 0.95))"
+														? "linear-gradient(135deg, hsla(145deg, 55%, 24%, 0.9), hsla(225deg, 30%, 15%, 0.95))"
 														: "hsla(220deg, 20%, 13%, 0.6)",
 												backdropFilter:
 													msg.role === "assistant"
@@ -491,11 +491,11 @@ function ChatPanel({
 														: "var(--color-text-primary)",
 												boxShadow:
 													msg.role === "user"
-														? "0 4px 20px hsla(265deg, 80%, 55%, 0.3), inset 0 1px 1px hsla(0deg, 0%, 100%, 0.1)"
+														? "0 4px 20px hsla(145deg, 85%, 52%, 0.3), inset 0 1px 1px hsla(0deg, 0%, 100%, 0.1)"
 														: "0 2px 12px rgba(0, 0, 0, 0.2), inset 0 1px 1px hsla(0deg, 0%, 100%, 0.05)",
 												border:
 													msg.role === "assistant"
-														? "1px solid hsla(188deg, 90%, 50%, 0.1)"
+														? "1px solid hsla(145deg, 85%, 52%, 0.1)"
 														: "none",
 											}}
 										>
@@ -628,7 +628,7 @@ function ChatPanel({
 										WebkitBackdropFilter: "blur(16px)",
 										borderRadius:
 											"var(--radius-lg) var(--radius-lg) var(--radius-lg) 4px",
-										borderLeft: "3px solid hsla(188deg, 90%, 50%, 0.5)",
+										borderLeft: "3px solid hsla(145deg, 85%, 52%, 0.5)",
 										display: "flex",
 										alignItems: "center",
 										gap: "var(--space-3)",
@@ -792,7 +792,7 @@ function ChatPanel({
 							boxShadow:
 								isLoading || isSettingsSaving || !input.trim()
 									? "none"
-									: "0 0 20px hsla(188deg, 90%, 50%, 0.3)",
+									: "0 0 20px hsla(145deg, 85%, 52%, 0.3)",
 							transition: "all var(--transition-fast)",
 							minWidth: "100px",
 						}}

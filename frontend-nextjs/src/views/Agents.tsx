@@ -332,7 +332,7 @@ export default function Agents() {
 											borderRadius: "var(--radius-md)",
 											background:
 												agent.id === selectedAgentId
-													? "hsla(188deg, 90%, 50%, 0.08)"
+													? "hsla(145deg, 85%, 52%, 0.08)"
 													: "var(--color-bg-secondary)",
 										}}
 									>
@@ -586,7 +586,7 @@ export default function Agents() {
 										border: `1px solid ${form.agent_type === option.value ? "var(--color-accent-primary)" : "var(--color-border)"}`,
 										background:
 											form.agent_type === option.value
-												? "hsla(188deg, 90%, 50%, 0.08)"
+												? "hsla(145deg, 85%, 52%, 0.08)"
 												: "transparent",
 										cursor: "pointer",
 									}}

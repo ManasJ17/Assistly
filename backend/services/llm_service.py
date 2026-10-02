@@ -327,26 +327,36 @@ class MockLLMService(BaseLLMService):
     ) -> str:
         """生成模拟回复"""
         if not user_message:
-            return "您好！有什么可以帮助您的吗？"
+            return "I'm Assistly, your AI support assistant. How can I help you today?"
 
         # 根据系统提示词调整回复
         if system_prompt and "小唯" in system_prompt:
-            prefix = "我是小唯，"
+            prefix = "I'm Xiao Wei, your AI support assistant. "
         else:
-            prefix = "我是AI助手，"
+            prefix = "I'm Assistly, your AI support assistant. "
 
         # 简单的关键词匹配回复
         if "你好" in user_message or "hello" in user_message.lower():
-            return f"{prefix}您好！很高兴为您服务。"
+            return f"{prefix}How can I help you today?"
         elif "测试" in user_message:
-            return f"{prefix}这是一个测试环境的模拟回复。RAG检索功能正常工作，但LLM使用的是Mock服务。"
+            return (
+                f"{prefix}This is a mock response because no real LLM API key is configured. "
+                "RAG functionality can still be tested, but real AI responses require an LLM API key."
+            )
         elif "问题" in user_message:
-            return f"{prefix}我收到了您的问题。在生产环境中，我会根据知识库内容为您提供详细答案。"
+            return (
+                f"{prefix}I received your question. In a production environment, "
+                "I would provide a detailed answer based on the knowledge base."
+            )
         elif "谢谢" in user_message or "感谢" in user_message:
-            return f"{prefix}不客气！如果还有其他问题，请随时提问。"
+            return f"{prefix}You're welcome! Please ask if you have any other questions."
         else:
             sanitized_message = html.escape(user_message)
-            return f"{prefix}感谢您的提问！\n\n**注意**：当前使用的是Mock LLM服务。要启用真正的AI对话功能，请在.env文件中配置DEEPSEEK_API_KEY，或在系统设置页面配置Agent的API Key。\n\n您的问题是：{sanitized_message}"
+            return (
+                f"{prefix}Real AI conversations are currently disabled because no LLM API key "
+                "has been configured. Please configure an API key in Agent Settings to enable "
+                f"real AI responses.\n\nYour question was: {sanitized_message}"
+            )
 
     async def test_connection(self) -> bool:
         """测试连接（Mock版本总是返回True）"""

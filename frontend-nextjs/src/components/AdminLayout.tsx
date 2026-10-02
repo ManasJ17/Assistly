@@ -383,12 +383,12 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 								alignItems: "center",
 								justifyContent: "center",
 								overflow: "hidden",
-								boxShadow: "0 0 20px hsla(188deg, 90%, 50%, 0.2)",
+								boxShadow: "0 0 20px hsla(145deg, 85%, 52%, 0.2)",
 							}}
 						>
 							<img
 								src="/logo.png"
-								alt="Basjoo Logo"
+								alt="Assistly Logo"
 								style={{
 									width: "100%",
 									height: "100%",
@@ -404,7 +404,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 									color: "var(--color-text-primary)",
 									letterSpacing: "-0.02em",
 									background:
-										"linear-gradient(135deg, hsl(188deg, 90%, 50%) 0%, hsl(265deg, 90%, 65%) 100%)",
+										"var(--color-accent-gradient)",
 									WebkitBackgroundClip: "text",
 									WebkitTextFillColor: "transparent",
 									backgroundClip: "text",
@@ -481,9 +481,9 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 								top: `${indicatorStyle.top}px`,
 								height: `${indicatorStyle.height}px`,
 								width: "calc(100% - 8px)",
-								background: "hsla(188deg, 90%, 50%, 0.08)",
+								background: "hsla(145deg, 85%, 52%, 0.08)",
 								borderRadius: "var(--radius-md)",
-								border: "1px solid hsla(188deg, 90%, 50%, 0.12)",
+								border: "1px solid hsla(145deg, 85%, 52%, 0.12)",
 								transition:
 									"top 400ms cubic-bezier(0.34, 1.56, 0.64, 1), height 300ms cubic-bezier(0.25, 1.1, 0.5, 1.15)",
 								pointerEvents: "none",
@@ -536,7 +536,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 												opacity: active ? 1 : 0.6,
 												transition: "opacity var(--transition-fast)",
 												filter: active
-													? "drop-shadow(0 0 6px hsla(188deg, 90%, 50%, 0.4))"
+													? "drop-shadow(0 0 6px hsla(145deg, 85%, 52%, 0.4))"
 													: "none",
 											}}
 										>
@@ -616,7 +616,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 															? "var(--color-accent-primary)"
 															: "var(--color-text-secondary)",
 														background: childActive
-															? "hsla(188deg, 90%, 50%, 0.06)"
+															? "hsla(145deg, 85%, 52%, 0.06)"
 															: "transparent",
 														textDecoration: "none",
 														fontSize: "var(--text-sm)",
@@ -637,7 +637,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 																borderRadius: "50%",
 																background: "var(--color-accent-primary)",
 																boxShadow:
-																	"0 0 8px hsla(188deg, 90%, 50%, 0.5)",
+																	"0 0 8px hsla(145deg, 85%, 52%, 0.5)",
 															}}
 														/>
 													)}
@@ -647,7 +647,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 															opacity: childActive ? 1 : 0.6,
 															transition: "opacity var(--transition-fast)",
 															filter: childActive
-																? "drop-shadow(0 0 4px hsla(188deg, 90%, 50%, 0.3))"
+																? "drop-shadow(0 0 4px hsla(145deg, 85%, 52%, 0.3))"
 																: "none",
 														}}
 													>
@@ -698,7 +698,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 							fontSize: "var(--text-sm)",
 							fontWeight: 600,
 							color: "var(--color-text-inverse)",
-							boxShadow: "0 0 16px hsla(188deg, 90%, 50%, 0.25)",
+							boxShadow: "0 0 16px hsla(145deg, 85%, 52%, 0.25)",
 						}}
 					>
 						{admin?.name?.charAt(0).toUpperCase() || "A"}
@@ -814,13 +814,13 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 								fontSize: "var(--text-lg)",
 								fontWeight: 700,
 								background:
-									"linear-gradient(135deg, hsl(188deg, 90%, 50%) 0%, hsl(265deg, 90%, 65%) 100%)",
+									"var(--color-accent-gradient)",
 								WebkitBackgroundClip: "text",
 								WebkitTextFillColor: "transparent",
 								backgroundClip: "text",
 							}}
 						>
-							Basjoo AI
+											Assistly
 						</span>
 					</Link>
 					<div style={{ width: "40px" }} />

@@ -24,8 +24,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### One-command production install (Ubuntu/Debian)
 
-- Blank server deploy: `curl -fsSL https://raw.githubusercontent.com/haoyiyin/basjoo/main/install-deploy.sh | sudo sh`
 - Local repo deploy: `sudo sh install-deploy.sh`
+- Remote deployment: set `BASJOO_REPO_URL` to the finalized Assistly repository URL before running the installer. The installer default remains the upstream Basjoo repository for compatibility.
 - Supported systems: Ubuntu and Debian. The script auto-installs Docker/Compose, clones/syncs the repo, and deploys the production profile.
 - Persistent volumes are preserved; `install-deploy.sh` does not remove `backend-data`, `redis-data`, or `postgres-data`.
 

@@ -176,12 +176,12 @@ export const Register = () => {
 							width: "80px",
 							height: "80px",
 							marginBottom: "var(--space-6)",
-							filter: "drop-shadow(0 0 20px hsla(265deg, 90%, 65%, 0.3))",
+							filter: "drop-shadow(0 0 20px hsla(145deg, 85%, 52%, 0.3))",
 						}}
 					>
 						<img
 							src="/logo.png"
-							alt="Basjoo Logo"
+							alt="Assistly Logo"
 							style={{
 								width: "100%",
 								height: "100%",
@@ -195,13 +195,13 @@ export const Register = () => {
 							fontWeight: 700,
 							marginBottom: "var(--space-3)",
 							background:
-								"linear-gradient(135deg, hsl(265deg, 90%, 65%) 0%, hsl(188deg, 90%, 50%) 100%)",
+								"var(--color-accent-gradient)",
 							WebkitBackgroundClip: "text",
 							backgroundClip: "text",
 							WebkitTextFillColor: "transparent",
 						}}
 					>
-						Basjoo
+						Assistly
 					</h1>
 					<p
 						style={{
